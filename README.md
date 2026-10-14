@@ -31,26 +31,22 @@ I reviewed the shipment records for:
 - Shipment identifier
 - Shipment source record
 
-## Findings
+## Interpretation of the reviewed shipment
 
-Sayari returned approximately **925 results** using the selected search
-criteria.
+One reviewed shipment involved **Gohar Negar Toos**, a shipper located in **Mashhad, Iran**. The product description identified **Diesel fuel K-4**, classified under **HS code 2710.19**.
 
-The results show relationships between Iranian shippers and records
-associated with Russian receivers. However, each shipment must be checked
-individually to determine whether it represents a direct Iran-to-Russia
-route.
+However, the listed country of arrival was **Uzbekistan**, and the shipment record did not identify Russia as its destination. Therefore, this record demonstrates an **Iran-linked diesel shipment**, but it does not provide direct evidence of diesel moving from Iran to Russia.
 
-One shipment I reviewed involved:
+Russia appearing in the company's broader country relationships should be treated as a separate **network-level connection**, not proof of this specific shipment's route.
 
-- Shipper: Gohar Negar Toos
-- Shipper address: Mashhad, Iran
-- Product: Diesel fuel K-4
-- HS code: 2710.19
-- Country of arrival: Uzbekistan
+### Evidence classification
 
-Because that shipment arrived in Uzbekistan, it is not direct evidence of
-a diesel shipment from Iran to Russia.
+- **Documented:** Iranian shipper address
+- **Documented:** Product described as Diesel fuel K-4
+- **Documented:** HS code 2710.19
+- **Documented:** Arrival country listed as Uzbekistan
+- **Not established:** Direct Iran-to-Russia shipment
+- **Possible inference:** The company may participate in a broader regional petroleum-trade network
 
 ## Documented facts versus inferences
 
