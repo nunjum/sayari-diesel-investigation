@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tracking Diesel Trade from Iran to Russia</title>
+
+  <style>
+    :root {
+      --blue: #1769aa;
+      --dark: #17202a;
+      --gray: #5f6b76;
+      --light: #f4f7fa;
+      --border: #dce3e8;
+      --warning: #fff4d6;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+      color: var(--dark);
+      background: var(--light);
+    }
+
+    header {
+      color: white;
+      background: linear-gradient(135deg, #123c66, #1769aa);
+      padding: 64px 20px;
+    }
+
+    header .container {
+      max-width: 1050px;
+      margin: auto;
+    }
+
+    header h1 {
+      max-width: 850px;
+      margin: 0 0 16px;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      line-height: 1.15;
+    }
+
+    header p {
+      max-width: 760px;
+      margin: 0;
+      font-size: 1.15rem;
+      opacity: 0.94;
+    }
+
+    nav {
+      background: white;
+      border-bottom: 1px solid var(--border);
+      padding: 14px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    nav .container {
+      max-width: 1050px;
+      margin: auto;
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: var(--blue);
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    main {
+      max-width: 1050px;
+      margin: 36px auto;
+      padding: 0 20px;
+    }
+
+    section {
+      background: white;
+      margin-bottom: 28px;
+      padding: 30px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      box-shadow: 0 4px 14px rgba(20, 45, 70, 0.05);
+    }
+
+    h2 {
+      margin-top: 0;
+      color: #123c66;
+      font-size: 1.8rem;
+    }
+
+    h3 {
+      color: var(--blue);
+    }
+
+    .finding {
+      background: var(--warning);
+      border-left: 5px solid #e0a400;
+      padding: 18px 20px;
+      border-radius: 6px;
+      margin: 20px 0;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .card {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 18px;
+    }
+
+    .card strong {
+      display: block;
+      color: var(--blue);
+      margin-bottom: 6px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 18px;
+    }
+
+    th,
+    td {
+      padding: 12px;
+      text-align: left;
+      vertical-align: top;
+      border-bottom: 1px solid var(--border);
+    }
+
+    th {
+      color: white;
+      background: #1769aa;
+    }
+
+    tr:nth-child(even) {
+      background: #f8fafc;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      margin: 10px 0 24px;
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 11px 17px;
+      color: white;
+      background: var(--blue);
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .button:hover {
+      background: #0e4f83;
+    }
+
+    footer {
+      max-width: 1050px;
+      margin: 0 auto;
+      padding: 0 20px 40px;
+      color: var(--gray);
+      font-size: 0.95rem;
+    }
+
+    .muted {
+      color: var(--gray);
+    }
+
+    code {
+      padding: 2px 5px;
+      background: #eef2f5;
+      border-radius: 4px;
+    }
+
+    @media (max-width: 700px) {
+      section {
+        padding: 22px;
+      }
+
+      table {
+        display: block;
+        overflow-x: auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <h1>Could Diesel Be Tracked from Iran to Russia?</h1>
+      <p>
+        A first-iteration investigation using Sayari Graph trade data to
+        examine petroleum-product shipments, company relationships, and
+        possible regional routing.
+      </p>
+    </div>
+  </header>
+
+  <nav>
+    <div class="container">
+      <a href="#question">Research question</a>
+      <a href="#method">Method</a>
+      <a href="#findings">Findings</a>
+      <a href="#evidence">Evidence</a>
+      <a href="#limitations">Limitations</a>
+    </div>
+  </nav>
+
+  <main>
+    <section id="question">
+      <h2>Research question</h2>
+
+      <p>
+        Can Sayari Graph identify diesel or petroleum-product trade
+        relationships connecting Iran and Russia?
+      </p>
+
+      <p>
+        The goal was to determine whether the available trade records showed
+        a direct Iran-to-Russia shipment, an indirect route through another
+        country, or only a broader company-level relationship.
+      </p>
+    </section>
+
+    <section id="method">
+      <h2>Research method</h2>
+
+      <p>
+        I used the Trade search in Sayari Graph and examined shipment records
+        rather than relying only on company names or aggregate country lists.
+      </p>
+
+      <div class="cards">
+        <div class="card">
+          <strong>Product category</strong>
+          Diesel and petroleum products
+        </div>
+
+        <div class="card">
+          <strong>HS code</strong>
+          <code>2710.19</code>
+        </div>
+
+        <div class="card">
+          <strong>Shipper country</strong>
+          Iran
+        </div>
+
+        <div class="card">
+          <strong>Receiver country</strong>
+          Russia
+        </div>
+      </div>
+
+      <p>
+        For each record, I reviewed the product description, shipper,
+        receiver, country of manufacture, country of departure, country of
+        arrival, shipment identifier, and source record.
+      </p>
+    </section>
+
+    <section id="findings">
+      <h2>Findings</h2>
+
+      <div class="finding">
+        <strong>Important finding:</strong>
+        One reviewed shipment involved an Iranian shipper and a product
+        described as Diesel fuel K-4, but the listed arrival country was
+        Uzbekistan rather than Russia. Therefore, this record is not direct
+        evidence of an Iran-to-Russia shipment.
+      </div>
+
+      <p>
+        The search returned approximately <strong>925 results</strong> using
+        the selected criteria. The results indicate trade relationships
+        involving Iranian shippers, Russian-linked records, and other
+        countries in the region.
+      </p>
+
+      <p>
+        However, the result count alone does not prove that every shipment
+        traveled directly from Iran to Russia. Individual shipment records
+        must be checked separately.
+      </p>
+
+      <h3>Example shipment reviewed</h3>
+
+      <table>
+        <tr>
+          <th>Field</th>
+          <th>Observation</th>
+        </tr>
+        <tr>
+          <td>Shipper</td>
+          <td>Gohar Negar Toos</td>
+        </tr>
+        <tr>
+          <td>Shipper address</td>
+          <td>Mashhad, Iran</td>
+        </tr>
+        <tr>
+          <td>Product</td>
+          <td>Diesel fuel K-4</td>
+        </tr>
+        <tr>
+          <td>HS code</td>
+          <td>2710.19</td>
+        </tr>
+        <tr>
+          <td>Country of arrival</td>
+          <td>Uzbekistan</td>
+        </tr>
+        <tr>
+          <td>Interpretation</td>
+          <td>Iran-linked shipment to Uzbekistan; not direct Iran-to-Russia evidence.</td>
+        </tr>
+      </table>
+    </section>
+
+    <section id="evidence">
+      <h2>Documented facts versus inferences</h2>
+
+      <h3>Documented facts</h3>
+      <ul>
+        <li>Sayari lists the shipment under HS code 2710.19.</li>
+        <li>The product description includes Diesel fuel K-4.</li>
+        <li>The shipper address is in Mashhad, Iran.</li>
+        <li>The shipment's listed arrival country is Uzbekistan.</li>
+        <li>Russia appears in the broader country relationship information for the shipper.</li>
+      </ul>
+
+      <h3>Inference</h3>
+      <p>
+        The data suggests that the Iranian company participates in a broader
+        regional petroleum-trade network. However, the reviewed shipment does
+        not prove that this particular shipment traveled from Iran to Russia.
+      </p>
+
+      <h3>Sayari screenshots</h3>
+      <p class="muted">
+        The screenshots below can be added after uploading them to this
+        repository. Place the image files in the repository root and use the
+        filenames shown in the image links.
+      </p>
+
+      <!-- Uncomment these image links after uploading the screenshots. -->
+
+      <!--
+      <img src="sayari-search.png" alt="Sayari trade search results" />
+      <img src="sayari-shipment-details.png" alt="Sayari shipment details" />
+      -->
+    </section>
+
+    <section id="limitations">
+      <h2>Limitations</h2>
+
+      <ul>
+        <li>
+          HS code 2710.19 covers petroleum products and does not necessarily
+          prove that every result is diesel.
+        </li>
+        <li>
+          A company’s country relationship list does not prove that every
+          shipment traveled between those countries.
+        </li>
+        <li>
+          A shipper’s address is not necessarily the same as the physical
+          departure point.
+        </li>
+        <li>
+          The results do not, by themselves, prove sanctions violations or
+          illegal activity.
+        </li>
+        <li>
+          Trade records may be incomplete or use translated product
+          descriptions.
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Conclusion</h2>
+
+      <p>
+        The Sayari search demonstrates how trade data can be used to
+        investigate possible petroleum-product routes and relationships
+        involving Iran, Russia, and intermediary countries.
+      </p>
+
+      <p>
+        The current evidence supports an Iran-linked regional trade network.
+        Additional shipment records would be needed to confirm a direct
+        Iran-to-Russia diesel route.
+      </p>
+
+      <a class="button" href="README.md">Read the full project notes</a>
+    </section>
+  </main>
+
+  <footer>
+    <p>
+      Investigation conducted on October 14, 2026.
+    </p>
+    <p>
+      This project is an academic demonstration of relationship and trade
+      analysis using Sayari Graph.
+    </p>
+  </footer>
+</body>
+</html>
