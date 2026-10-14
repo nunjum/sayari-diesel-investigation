@@ -95,11 +95,27 @@ Iran-to-Russia diesel route.
 
 ## Screenshots
 
-Add Sayari screenshots to the repository and link them here, for example:
+### Shipment details
 
-![Sayari trade search](sayari-search.png)
+![Sayari shipment details showing an Iranian shipper and Uzbekistan as the arrival country](sayari-shipment-details.png)
 
-![Shipment details](sayari-shipment-details.png)
+This shipment is Iran-linked and describes Diesel fuel K-4, but the listed
+arrival country is Uzbekistan. It is not direct evidence of an
+Iran-to-Russia shipment.
+
+### Filtered search results
+
+![Sayari filtered trade results using HS code 2710.19](sayari-filtered-results.png)
+
+These results were filtered using HS code 2710.19 and Iran/Russia-related
+search criteria.
+
+### Broad search
+
+![Broad Sayari search for diesel and petroleum products](sayari-broad-search.png)
+
+This was the initial broad search used to identify relevant petroleum
+products and trade records.
 
 ## GitHub Pages site
 
